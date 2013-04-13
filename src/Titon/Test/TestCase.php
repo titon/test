@@ -33,11 +33,17 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 	 *
 	 * @param array $expected
 	 * @param array $actual
+	 * @param bool $key
 	 * @return void
 	 */
-	public function assertArraysEqual(array $expected, array $actual) {
-		ksort($actual);
-		ksort($expected);
+	public function assertArraysEqual(array $expected, array $actual, $key = false) {
+		if ($key) {
+			sort($actual);
+			sort($expected);
+		} else {
+			ksort($actual);
+			ksort($expected);
+		}
 
 		$this->assertEquals($expected, $actual);
 	}
