@@ -21,7 +21,7 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 
 	/**
 	 * Object being tested.
-	 * 
+	 *
 	 * @var object
 	 */
 	protected $object;
@@ -32,7 +32,10 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 	protected function setUp() {
 		parent::setUp();
 
-		// Reset each test
+		// Check version
+		$this->is54 = version_compare(PHP_VERSION, '5.4.0', '>=');
+
+		// Reset globals
 		$_POST = array();
 		$_GET = array();
 		$_COOKIE = array();
@@ -42,9 +45,15 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 		$_SERVER['PHP_SELF'] = '/index.php';
 		$_SERVER['REQUEST_URI'] = '/';
 		$_SERVER['SERVER_ADDR'] = '';
+		$_SERVER['HTTP_USER_AGENT'] = 'titon';
 
-		// Check version
-		$this->is54 = version_compare(PHP_VERSION, '5.4.0', '>=');
+		// Setup environment
+		date_default_timezone_set('UTC');
+
+		// Start the router if it exists
+		if (class_exists('Titon\Route\Router')) {
+			\Titon\Route\Router::initialize();
+		}
 	}
 
 	/**
