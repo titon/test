@@ -17,7 +17,14 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 	 *
 	 * @var bool
 	 */
-	public $is54 = false;
+	protected $is54 = false;
+
+	/**
+	 * Object being tested.
+	 * 
+	 * @var object
+	 */
+	protected $object;
 
 	/**
 	 * Setup flags.
@@ -25,6 +32,18 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 	protected function setUp() {
 		parent::setUp();
 
+		// Reset each test
+		$_POST = array();
+		$_GET = array();
+		$_COOKIE = array();
+		$_SESSION = array();
+		$_REQUEST = array();
+		$_SERVER['HTTP_HOST'] = 'localhost';
+		$_SERVER['PHP_SELF'] = '/index.php';
+		$_SERVER['REQUEST_URI'] = '/';
+		$_SERVER['SERVER_ADDR'] = '';
+
+		// Check version
 		$this->is54 = version_compare(PHP_VERSION, '5.4.0', '>=');
 	}
 
