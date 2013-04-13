@@ -29,20 +29,39 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * Strip new lines and tabs to test template files easily.
+	 *
+	 * @param string $string
+	 * @return string
+	 */
+	public function clean($string) {
+		return str_replace(array("\t", "\r", "\n"), '', $string);
+	}
+
+	/**
+	 * Clean new lines and remove carriage returns.
+	 *
+	 * @param string $string
+	 * @return string
+	 */
+	public function nl($string) {
+		return str_replace("\r", "", $string);
+	}
+
+	/**
 	 * Assert that two array values are equal, disregarding the order.
 	 *
 	 * @param array $expected
 	 * @param array $actual
 	 * @param bool $key
-	 * @return void
 	 */
 	public function assertArraysEqual(array $expected, array $actual, $key = false) {
 		if ($key) {
-			sort($actual);
-			sort($expected);
-		} else {
 			ksort($actual);
 			ksort($expected);
+		} else {
+			sort($actual);
+			sort($expected);
 		}
 
 		$this->assertEquals($expected, $actual);
