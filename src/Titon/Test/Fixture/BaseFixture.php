@@ -14,4 +14,9 @@ use Titon\Common\Base;
  */
 class BaseFixture extends Base {
 
+	protected $_config = array(
+		'foo' => 'bar',
+		'cfg' => true
+	);
+
 }

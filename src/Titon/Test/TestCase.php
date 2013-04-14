@@ -21,8 +21,6 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 
 	/**
 	 * Object being tested.
-	 *
-	 * @var object
 	 */
 	protected $object;
 
