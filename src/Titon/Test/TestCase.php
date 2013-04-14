@@ -20,6 +20,13 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 	protected $is54 = false;
 
 	/**
+	 * Is the environment windows?
+	 * 
+	 * @var bool
+	 */
+	protected $isWin = false;
+
+	/**
 	 * Object being tested.
 	 */
 	protected $object;
@@ -32,6 +39,7 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 
 		// Check version
 		$this->is54 = version_compare(PHP_VERSION, '5.4.0', '>=');
+		$this->isWin = (PHP_OS === 'Windows' || PHP_OS === 'WINNT');
 
 		// Reset globals
 		$_POST = array();
@@ -50,7 +58,8 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 
 		// Start the router if it exists
 		if (class_exists('Titon\Route\Router')) {
-			\Titon\Route\Router::initialize();
+			$router = new \Titon\Route\Router();
+			$router->initialize();
 		}
 	}
 
