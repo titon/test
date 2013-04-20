@@ -7,10 +7,10 @@
 
 namespace Titon\Test\Fixture;
 
-use Titon\Mvc\Controller\AbstractController;
+use Titon\Controller\Controller\AbstractController;
 
 /**
- * Fixture for Titon\Mvc\Controller.
+ * Fixture for Titon\Controller\Controller.
  */
 class ControllerFixture extends AbstractController {
 

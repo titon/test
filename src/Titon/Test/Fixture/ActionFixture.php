@@ -7,10 +7,10 @@
 
 namespace Titon\Test\Fixture;
 
-use Titon\Mvc\Action\AbstractAction;
+use Titon\Controller\Action\AbstractAction;
 
 /**
- * Fixture for Titon\Mvc\Action.
+ * Fixture for Titon\Controller\Action.
  */
 class ActionFixture extends AbstractAction {
 

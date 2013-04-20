@@ -7,10 +7,10 @@
 
 namespace Titon\Test\Fixture;
 
-use Titon\Mvc\Model\AbstractModel;
+use Titon\Model\Model\AbstractModel;
 
 /**
- * Fixture for Titon\Mvc\Model.
+ * Fixture for Titon\Model\Model.
  */
 class ModelFixture extends AbstractModel {
 
