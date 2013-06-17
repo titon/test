@@ -14,10 +14,21 @@ use Titon\Model\Query\Log\AbstractLog;
  */
 class QueryLogStub extends AbstractLog {
 
-	public function __construct($statement) {
+	public function __construct($statement, array $params = []) {
 		$this->_statement = $statement;
+		$this->_params = $params;
 		$this->_count = 5;
 		$this->_time = 0.01337;
+	}
+
+	public function getStatement() {
+		$statement = parent::getStatement();
+
+		foreach ($this->getParams() as $value) {
+			$statement = preg_replace('/\?/', $value, $statement, 1);
+		}
+
+		return $statement;
 	}
 
 }
