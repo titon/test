@@ -5,14 +5,14 @@
  * @link		http://titon.io
  */
 
-namespace Titon\Test\Fixture;
+namespace Titon\Test\Stub;
 
 use Titon\G11n\Translator\AbstractTranslator;
 
 /**
- * Fixture for Titon\G11n\Translator\AbstractTranslator.
+ * Stub for Titon\G11n\Translator\AbstractTranslator.
  */
-class TranslatorFixture extends AbstractTranslator {
+class TranslatorStub extends AbstractTranslator {
 
 	public function getMessage($key) { }
 

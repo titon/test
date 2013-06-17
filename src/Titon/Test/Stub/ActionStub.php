@@ -5,14 +5,14 @@
  * @link		http://titon.io
  */
 
-namespace Titon\Test\Fixture;
+namespace Titon\Test\Stub;
 
 use Titon\Controller\Action\AbstractAction;
 
 /**
- * Fixture for Titon\Controller\Action.
+ * Stub for Titon\Controller\Action.
  */
-class ActionFixture extends AbstractAction {
+class ActionStub extends AbstractAction {
 
 	public function run() {
 		$this->_controller->config->add(array(

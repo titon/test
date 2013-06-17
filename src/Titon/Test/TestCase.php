@@ -15,14 +15,14 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 	/**
 	 * Is the environment PHP 5.4?
 	 *
-	 * @var bool
+	 * @type bool
 	 */
 	protected $is54 = false;
 
 	/**
 	 * Is the environment windows?
-	 * 
-	 * @var bool
+	 *
+	 * @type bool
 	 */
 	protected $isWin = false;
 
@@ -39,7 +39,7 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 
 		// Check version
 		$this->is54 = version_compare(PHP_VERSION, '5.4.0', '>=');
-		$this->isWin = (PHP_OS === 'Windows' || PHP_OS === 'WINNT');
+		$this->isWin = in_array(strtolower(PHP_OS), array('windows', 'winnt'));
 
 		// Reset globals
 		$_POST = array();
@@ -81,6 +81,24 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 	 */
 	public function nl($string) {
 		return str_replace("\r", "", $string);
+	}
+
+	/**
+	 * Load fixtures and generate database records.
+	 *
+	 * @param string|array $fixtures
+	 */
+	public function loadFixtures($fixtures) {
+		foreach ((array) $fixtures as $fixture) {
+			$className = sprintf('Titon\Test\Fixture\%sFixture', $fixture);
+
+			/** @type \Titon\Test\TestFixture $object */
+			$object = new $className();
+
+			if ($object->createTable()) {
+				$object->insertRecords();
+			}
+		}
 	}
 
 	/**

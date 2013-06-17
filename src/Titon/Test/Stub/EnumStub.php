@@ -5,14 +5,14 @@
  * @link		http://titon.io
  */
 
-namespace Titon\Test\Fixture;
+namespace Titon\Test\Stub;
 
 use Titon\Type\Enum;
 
 /**
- * Fixture for Titon\Type\Enum.
+ * Stub for Titon\Type\Enum.
  */
-class EnumFixture extends Enum {
+class EnumStub extends Enum {
 
 	const WARRIOR = 0;
 	const RANGER = 1;

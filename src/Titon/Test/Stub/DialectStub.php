@@ -5,13 +5,13 @@
  * @link		http://titon.io
  */
 
-namespace Titon\Test\Fixture;
+namespace Titon\Test\Stub;
 
-use Titon\Io\Bundle\AbstractBundle;
+use Titon\Model\Driver\Dialect\AbstractDialect;
 
 /**
- * Fixture for Titon\Io\Bundle\AbstractBundle.
+ * Stub for Titon\Model\Driver\Dialect.
  */
-class BundleFixture extends AbstractBundle {
+class DialectStub extends AbstractDialect {
 
 }

@@ -5,14 +5,14 @@
  * @link		http://titon.io
  */
 
-namespace Titon\Test\Fixture;
+namespace Titon\Test\Stub;
 
 use Titon\Common\Base;
 
 /**
- * Fixture for Titon\Common\Base.
+ * Stub for Titon\Common\Base.
  */
-class BaseFixture extends Base {
+class BaseStub extends Base {
 
 	protected $_config = array(
 		'foo' => 'bar',

@@ -5,13 +5,13 @@
  * @link		http://titon.io
  */
 
-namespace Titon\Test\Fixture;
+namespace Titon\Test\Stub;
 
 use Titon\Mvc\Module\AbstractModule;
 
 /**
- * Fixture for Titon\Mvc\Module.
+ * Stub for Titon\Mvc\Module.
  */
-class ModuleFixture extends AbstractModule {
+class ModuleStub extends AbstractModule {
 
 }

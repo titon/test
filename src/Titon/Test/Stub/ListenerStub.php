@@ -5,15 +5,15 @@
  * @link		http://titon.io
  */
 
-namespace Titon\Test\Fixture;
+namespace Titon\Test\Stub;
 
 use Titon\Event\Event;
 use Titon\Event\Listener;
 
 /**
- * Fixture for Titon\Event\Listener
+ * Stub for Titon\Event\Listener
  */
-class ListenerFixture implements Listener {
+class ListenerStub implements Listener {
 
 	public function registerEvents() {
 		return array(

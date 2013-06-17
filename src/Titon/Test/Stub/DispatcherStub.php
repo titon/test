@@ -5,14 +5,14 @@
  * @link		http://titon.io
  */
 
-namespace Titon\Test\Fixture;
+namespace Titon\Test\Stub;
 
 use Titon\Mvc\Dispatcher\AbstractDispatcher;
 
 /**
- * Fixture for Titon\Mvc\Dispatcher.
+ * Stub for Titon\Mvc\Dispatcher.
  */
-class DispatcherFixture extends AbstractDispatcher {
+class DispatcherStub extends AbstractDispatcher {
 
 	public function dispatch() {}
 

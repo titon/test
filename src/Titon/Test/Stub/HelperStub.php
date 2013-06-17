@@ -5,14 +5,14 @@
  * @link		http://titon.io
  */
 
-namespace Titon\Test\Fixture;
+namespace Titon\Test\Stub;
 
 use Titon\View\Helper\AbstractHelper;
 
 /**
- * Fixture for Titon\View\Helper.
+ * Stub for Titon\View\Helper.
  */
-class HelperFixture extends AbstractHelper {
+class HelperStub extends AbstractHelper {
 
 	protected $_tags = array(
 		'noattr' => '<tag>{body}</tag>',

@@ -5,14 +5,14 @@
  * @link		http://titon.io
  */
 
-namespace Titon\Test\Fixture;
+namespace Titon\Test\Stub;
 
 use Titon\Model\Model\AbstractModel;
 
 /**
- * Fixture for Titon\Model\Model.
+ * Stub for Titon\Model\Model.
  */
-class ModelFixture extends AbstractModel {
+class ModelStub extends AbstractModel {
 
 	protected $_getters = array(
 		'created' => 'getDate',

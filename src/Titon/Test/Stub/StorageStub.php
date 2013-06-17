@@ -5,14 +5,14 @@
  * @link		http://titon.io
  */
 
-namespace Titon\Test\Fixture;
+namespace Titon\Test\Stub;
 
 use Titon\Cache\Storage\AbstractStorage;
 
 /**
- * Fixture for Titon\Cache\Storage\AbstractStorage.
+ * Stub for Titon\Cache\Storage\AbstractStorage.
  */
-class StorageFixture extends AbstractStorage {
+class StorageStub extends AbstractStorage {
 
 	public function decrement($key, $step = 1) {}
 	public function flush() {}

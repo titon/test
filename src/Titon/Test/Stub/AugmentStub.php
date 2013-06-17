@@ -5,15 +5,15 @@
  * @link		http://titon.io
  */
 
-namespace Titon\Test\Fixture;
+namespace Titon\Test\Stub;
 
 use Titon\Common\Base;
 use Titon\Common\Traits\Cacheable;
 
 /**
- * Fixture for Titon\Common\Augment.
+ * Stub for Titon\Common\Augment.
  */
-class AugmentFixture extends Base {
+class AugmentStub extends Base {
 	use Cacheable;
 
 	const YES = true;

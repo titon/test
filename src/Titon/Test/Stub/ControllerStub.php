@@ -5,14 +5,14 @@
  * @link		http://titon.io
  */
 
-namespace Titon\Test\Fixture;
+namespace Titon\Test\Stub;
 
 use Titon\Controller\Controller\AbstractController;
 
 /**
- * Fixture for Titon\Controller\Controller.
+ * Stub for Titon\Controller\Controller.
  */
-class ControllerFixture extends AbstractController {
+class ControllerStub extends AbstractController {
 
 	public function actionWithArgs($arg1, $arg2 = 0) {
 		return $arg1 + $arg2;

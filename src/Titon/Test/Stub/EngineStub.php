@@ -5,14 +5,14 @@
  * @link		http://titon.io
  */
 
-namespace Titon\Test\Fixture;
+namespace Titon\Test\Stub;
 
 use Titon\View\Engine\AbstractEngine;
 
 /**
- * Fixture for Titon\View\Engine.
+ * Stub for Titon\View\Engine.
  */
-class EngineFixture extends AbstractEngine {
+class EngineStub extends AbstractEngine {
 
 	public function open($partial, array $variables = array()) {}
 	public function render($path, array $variables = array()) {}
