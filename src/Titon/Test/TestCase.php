@@ -17,19 +17,28 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 	 *
 	 * @type bool
 	 */
-	protected $is54 = false;
+	public $is54 = false;
 
 	/**
 	 * Is the environment windows?
 	 *
 	 * @type bool
 	 */
-	protected $isWin = false;
+	public $isWin = false;
 
 	/**
 	 * Object being tested.
+	 *
+	 * @type object
 	 */
-	protected $object;
+	public $object;
+
+	/**
+	 * List of loaded fixtures.
+	 *
+	 * @type \Titon\Test\TestFixture[]
+	 */
+	public $fixtures = [];
 
 	/**
 	 * Setup flags.
@@ -84,6 +93,21 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * Get a fixture by name.
+	 *
+	 * @param string $name
+	 * @return \Titon\Test\TestFixture
+	 * @throws \Exception
+	 */
+	public function getFixture($name) {
+		if (isset($this->fixtures[$name])) {
+			return $this->fixtures[$name];
+		}
+
+		throw new \Exception(sprintf('Fixture %s does not exist', $name));
+	}
+
+	/**
 	 * Load fixtures and generate database records.
 	 *
 	 * @param string|array $fixtures
@@ -98,6 +122,18 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 			if ($object->createTable()) {
 				$object->insertRecords();
 			}
+
+			$this->fixtures[$fixture] = $object;
+		}
+	}
+
+	/**
+	 * Delete the fixture and drop the related table.
+	 */
+	public function unloadFixtures() {
+		foreach ($this->fixtures as $name => $fixture) {
+			$fixture->dropTable();
+			unset($this->fixtures[$name]);
 		}
 	}
 

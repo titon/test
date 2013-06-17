@@ -7,6 +7,8 @@
 
 namespace Titon\Test;
 
+use Titon\Model\Model;
+use Titon\Model\Query;
 use \Exception;
 
 /**
@@ -15,11 +17,11 @@ use \Exception;
 class TestFixture {
 
 	/**
-	 * Class name for model to use.
+	 * Table to create.
 	 *
 	 * @type string
 	 */
-	public $model;
+	public $table;
 
 	/**
 	 * List of records to insert into the table.
@@ -27,6 +29,13 @@ class TestFixture {
 	 * @type array
 	 */
 	public $records = array();
+
+	/**
+	 * Model instance.
+	 *
+	 * @type \Titon\Model\Model
+	 */
+	protected $_model;
 
 	/**
 	 * Create the database table using the model's schema.
@@ -43,19 +52,34 @@ class TestFixture {
 	}
 
 	/**
+	 * Drop the table.
+	 *
+	 * @return bool
+	 */
+	public function dropTable() {
+		return (bool) $this->loadModel()->query(Query::DROP_TABLE)->save();
+	}
+
+	/**
 	 * Instantiate a new model instance.
 	 *
 	 * @return \Titon\Model\Model
 	 * @throws \Exception
 	 */
 	public function loadModel() {
-		if (empty($this->model)) {
-			throw new Exception(sprintf('Model for %s has not been defined', get_class($this)));
+		if ($this->_model) {
+			return $this->_model;
 		}
 
-		$modelName = $this->model;
+		if (!$this->table) {
+			throw new Exception(sprintf('Table for %s has not been defined', get_class($this)));
+		}
 
-		return new $modelName();
+		$this->_model = new Model([
+			'table' => $this->table
+		]);
+
+		return $this->_model;
 	}
 
 	/**
@@ -71,6 +95,15 @@ class TestFixture {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Truncate the table of all records.
+	 *
+	 * @return bool
+	 */
+	public function truncateTable() {
+		return (bool) $this->loadModel()->query(Query::TRUNCATE)->save();
 	}
 
 }
