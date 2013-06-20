@@ -7,18 +7,30 @@
 
 namespace Titon\Test\Stub;
 
-use Titon\Model\Query\Log\AbstractLog;
+use Titon\Model\Query\Result\AbstractResult;
 
 /**
- * Stub for Titon\Model\Query\Log.
+ * Stub for Titon\Model\Query\Result.
  */
-class QueryLogStub extends AbstractLog {
+class QueryResultStub extends AbstractResult {
 
 	public function __construct($statement, array $params = []) {
 		$this->_statement = $statement;
 		$this->_params = $params;
 		$this->_count = 5;
 		$this->_time = 0.01337;
+	}
+
+	public function count() {
+	}
+
+	public function fetch() {
+	}
+
+	public function fetchAll() {
+	}
+
+	public function save() {
 	}
 
 	public function getStatement() {
