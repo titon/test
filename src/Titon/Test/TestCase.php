@@ -118,10 +118,8 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 
 			/** @type \Titon\Test\TestFixture $object */
 			$object = new $className();
-
-			if ($object->createTable()) {
-				$object->insertRecords();
-			}
+			$object->createTable();
+			$object->insertRecords();
 
 			$this->fixtures[$fixture] = $object;
 		}

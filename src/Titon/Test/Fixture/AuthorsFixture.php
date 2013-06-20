@@ -11,7 +11,7 @@ use Titon\Test\TestFixture;
 
 class AuthorsFixture extends TestFixture {
 
-	public $table = 'authors';
+	public $model = 'Titon\Test\Stub\Model\Author';
 
 	public $records = [
 		['id' => 1, 'name' => 'George R. R. Martin'],

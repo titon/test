@@ -11,7 +11,7 @@ use Titon\Test\TestFixture;
 
 class ProfilesFixture extends TestFixture {
 
-	public $table = 'profiles';
+	public $model = 'Titon\Test\Stub\Model\Profile';
 
 	public $records = [
 		['id' => 1, 'user_id' => 4, 'lastLogin' => '2012-02-03 21:22:34', 'currentLogin' => '2013-06-06 19:11:03'],

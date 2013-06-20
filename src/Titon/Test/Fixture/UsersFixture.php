@@ -11,7 +11,7 @@ use Titon\Test\TestFixture;
 
 class UsersFixture extends TestFixture {
 
-	public $table = 'users';
+	public $model = 'Titon\Test\Stub\Model\User';
 
 	public $records = [
 		['id' => 1, 'country_id' => 1, 'username' => 'miles', 'firstName' => 'Miles', 'lastName' => 'Johnson', 'password' => '1Z5895jf72yL77h', 'email' => 'miles@email.com', 'age' => 25, 'created' => '1988-02-26 21:22:34'],

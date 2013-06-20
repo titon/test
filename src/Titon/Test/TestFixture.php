@@ -17,11 +17,11 @@ use \Exception;
 class TestFixture {
 
 	/**
-	 * Table to create.
+	 * Name of model to use.
 	 *
 	 * @type string
 	 */
-	public $table;
+	public $model;
 
 	/**
 	 * List of records to insert into the table.
@@ -71,13 +71,12 @@ class TestFixture {
 			return $this->_model;
 		}
 
-		if (!$this->table) {
-			throw new Exception(sprintf('Table for %s has not been defined', get_class($this)));
+		if (!$this->model) {
+			throw new Exception(sprintf('Model for %s has not been defined', get_class($this)));
 		}
 
-		$this->_model = new Model([
-			'table' => $this->table
-		]);
+		$name = $this->model;
+		$this->_model = new $name();
 
 		return $this->_model;
 	}
