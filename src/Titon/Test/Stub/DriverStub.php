@@ -34,7 +34,7 @@ class DriverStub extends AbstractPdoDriver {
 			'float' => 'Titon\Model\Driver\Type\FloatType',
 			'double' => 'Titon\Model\Driver\Type\DoubleType',
 			'decimal' => 'Titon\Model\Driver\Type\DecimalType',
-			'boolean' => 'Titon\Model\Mysql\Type\BooleanType',
+			'boolean' => 'Titon\Model\Driver\Type\BooleanType',
 			'date' => 'Titon\Model\Driver\Type\DateType',
 			'datetime' => 'Titon\Model\Driver\Type\DatetimeType',
 			'timestamp' => 'Titon\Model\Driver\Type\DatetimeType',

@@ -21,6 +21,9 @@ class QueryResultStub extends AbstractResult {
 		$this->_time = 0.01337;
 	}
 
+	public function close() {
+	}
+
 	public function count() {
 	}
 
