@@ -29,14 +29,14 @@ class Book extends Model {
 		parent::initialize();
 
 		// Belongs to
-		$this->addRelation(new ManyToOne('Series', 'Titon\Test\Stub\Model'))
+		$this->addRelation(new ManyToOne('Series', 'Titon\Test\Stub\Model\Series'))
 			->setForeignKey('series_id');
 
 		// Belongs to many
-		$this->addRelation(new ManyToMany('Genre', 'Titon\Test\Stub\Genre'))
+		$this->addRelation(new ManyToMany('Genres', 'Titon\Test\Stub\Model\Genre'))
 			->setForeignKey('book_id')
 			->setRelatedForeignKey('genre_id')
-			->setJunctionModel('Titon\Test\Stub\BookGenre');
+			->setJunctionModel('Titon\Test\Stub\Model\BookGenre');
 	}
 
 }

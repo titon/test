@@ -28,6 +28,7 @@ class BooksFixture extends TestFixture {
 		['id' => 11, 'series_id' => 2, 'name' => 'Harry Potter and the Half-blood Prince', 'isbn' => '0-7475-8108-8', 'released' => '2005-07-16'],
 		['id' => 12, 'series_id' => 2, 'name' => 'Harry Potter and the Deathly Hallows', 'isbn' => '0-545-01022-5', 'released' => '2007-07-21'],
 
+		// No ISBNs
 		['id' => 13, 'series_id' => 3, 'name' => 'The Fellowship of the Ring', 'released' => '1954-07-24'],
 		['id' => 14, 'series_id' => 3, 'name' => 'The Two Towers', 'released' => '1954-11-11'],
 		['id' => 15, 'series_id' => 3, 'name' => 'The Return of the King', 'released' => '1955-10-25'],

@@ -26,10 +26,10 @@ class BookGenre extends Model {
 		parent::initialize();
 
 		// Belongs to
-		$this->addRelation(new ManyToOne('Book', 'Titon\Test\Stub\Book'))
+		$this->addRelation(new ManyToOne('Book', 'Titon\Test\Stub\Model\Book'))
 			->setForeignKey('book_id');
 
-		$this->addRelation(new ManyToOne('Genre', 'Titon\Test\Stub\Genre'))
+		$this->addRelation(new ManyToOne('Genre', 'Titon\Test\Stub\Model\Genre'))
 			->setForeignKey('genre_id');
 	}
 

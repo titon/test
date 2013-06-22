@@ -25,7 +25,7 @@ class Author extends Model {
 		parent::initialize();
 
 		// Has one
-		$this->addRelation(new OneToOne('Series', 'Titon\Test\Stub\Series'))
+		$this->addRelation(new OneToOne('Series', 'Titon\Test\Stub\Model\Series'))
 			->setRelatedForeignKey('author_id');
 	}
 

@@ -27,11 +27,11 @@ class Series extends Model {
 		parent::initialize();
 
 		// Belongs to
-		$this->addRelation(new ManyToOne('Author', 'Titon\Test\Stub\Author'))
+		$this->addRelation(new ManyToOne('Author', 'Titon\Test\Stub\Model\Author'))
 			->setForeignKey('author_id');
 
 		// Has many
-		$this->addRelation(new OneToMany('Book', 'Titon\Test\Stub\Book'))
+		$this->addRelation(new OneToMany('Books', 'Titon\Test\Stub\Model\Book'))
 			->setRelatedForeignKey('series_id');
 	}
 
