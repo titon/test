@@ -27,6 +27,9 @@ class QueryResultStub extends AbstractResult {
 	public function count() {
 	}
 
+	public function execute() {
+	}
+
 	public function fetch() {
 	}
 
