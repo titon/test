@@ -109,11 +109,15 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 
 	/**
 	 * Load fixtures and generate database records.
-	 *
-	 * @param string|array $fixtures
 	 */
-	public function loadFixtures($fixtures) {
-		foreach ((array) $fixtures as $fixture) {
+	public function loadFixtures() {
+		$fixtures = func_get_args();
+
+		if (is_array($fixtures[0])) {
+			$fixtures = $fixtures[0];
+		}
+
+		foreach ($fixtures as $fixture) {
 			$className = sprintf('Titon\Test\Fixture\%sFixture', $fixture);
 
 			/** @type \Titon\Test\TestFixture $object */
