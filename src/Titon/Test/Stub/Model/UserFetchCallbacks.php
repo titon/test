@@ -9,43 +9,11 @@ namespace Titon\Test\Stub\Model;
 
 use Titon\Model\Query;
 
-class UserCallbacks extends User {
-
-	public function preDelete($id, &$cascade) {
-		if ($id === 1) {
-			return false;
-		} else if ($id === 3) {
-			$cascade = false;
-		}
-
-		return true;
-	}
-
-	public function postDelete($id) {
-		$this->data = ['id' => $id];
-	}
-
-	public function preSave($id, array $data) {
-		if ($id === 1) {
-			return false;
-		}
-
-		if ($id) {
-			$data['firstName'] = 'UPDATE';
-		} else {
-			$data['firstName'] = 'CREATE';
-		}
-
-		return $data;
-	}
-
-	public function postSave($id, $created = false) {
-		$this->data = ['id' => $id, 'created' => $created];
-	}
+class UserFetchCallbacks extends User {
 
 	public function preFetch(Query $query, $fetchType) {
 		if ($fetchType === 'fetch') {
-			return ['foo' => 'bar'];
+			return ['custom' => 'data'];
 
 		} else if ($fetchType === 'fetchAll') {
 			$query->fields('id', 'username');
@@ -58,7 +26,7 @@ class UserCallbacks extends User {
 	}
 
 	public function postFetch(array $results, $fetchType) {
-		if ($fetchType === 'fetchAll') {
+		if (isset($this->testApply) && $fetchType === 'fetchAll') {
 			foreach ($results as &$result) {
 				if ($result['id'] % 2 == 0) {
 					$result['foo'] = 'bar';
