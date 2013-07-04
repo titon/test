@@ -9,18 +9,25 @@ namespace Titon\Test\Stub\Model;
 
 use Titon\Model\Model;
 use Titon\Model\Relation\ManyToOne;
-use Titon\Model\Relation\OneToMany;
 
-class Genre extends Model {
+class Post extends Model {
 
 	protected $_config = [
-		'table' => 'genres'
+		'table' => 'posts'
 	];
 
 	protected $_schema = [
 		'id' => ['type' => 'int', 'ai' => true, 'primary' => true],
-		'name' => 'varchar',
-		'book_count' => 'int'
+		'topic_id' => ['type' => 'int', 'index' => true],
+		'active' => 'smallint',
+		'content' => 'text'
 	];
+
+	public function initialize() {
+		parent::initialize();
+
+		$this->addRelation(new ManyToOne('Topic', 'Titon\Test\Stub\Model\Topic'))
+			->setForeignKey('topic_id');
+	}
 
 }

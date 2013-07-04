@@ -8,19 +8,28 @@
 namespace Titon\Test\Stub\Model;
 
 use Titon\Model\Model;
-use Titon\Model\Relation\ManyToOne;
 use Titon\Model\Relation\OneToMany;
 
-class Genre extends Model {
+class Topic extends Model {
 
 	protected $_config = [
-		'table' => 'genres'
+		'table' => 'topics'
 	];
 
 	protected $_schema = [
 		'id' => ['type' => 'int', 'ai' => true, 'primary' => true],
-		'name' => 'varchar',
-		'book_count' => 'int'
+		'title' => 'varchar',
+		'content' => 'text',
+		'post_count' => 'int',
+		'created' => 'datetime',
+		'modified' => 'datetime'
 	];
+
+	public function initialize() {
+		parent::initialize();
+
+		$this->addRelation(new OneToMany('Posts', 'Titon\Test\Stub\Model\Post'))
+			->setRelatedForeignKey('topic_id');
+	}
 
 }
