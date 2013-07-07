@@ -36,7 +36,7 @@ class Book extends Model {
 		$this->addRelation(new ManyToMany('Genres', 'Titon\Test\Stub\Model\Genre'))
 			->setForeignKey('book_id')
 			->setRelatedForeignKey('genre_id')
-			->setJunctionModel('Titon\Test\Stub\Model\BookGenre');
+			->setJunctionClass('Titon\Test\Stub\Model\BookGenre');
 	}
 
 }
