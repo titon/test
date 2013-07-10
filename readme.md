@@ -1,4 +1,4 @@
-# Test v0.11.1 #
+# Test v0.11.2 #
 
 The Titon test package provides classes, stubs and fixtures used for test cases. This should not be used in production.
 
