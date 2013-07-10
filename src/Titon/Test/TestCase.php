@@ -38,7 +38,7 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 	 *
 	 * @type \Titon\Test\TestFixture[]
 	 */
-	public $fixtures = [];
+	public $fixtures = array();
 
 	/**
 	 * Setup flags.
