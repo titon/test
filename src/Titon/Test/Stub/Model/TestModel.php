@@ -21,8 +21,12 @@ class TestModel extends Model {
 
 		if ($driver instanceof \Titon\Model\Pgsql\PgsqlDriver) {
 			foreach ($this->_schema as $field => $data) {
-				if (is_array($data)) {
+				if ($field === 'id') {
+					$this->_schema[$field] = ['type' => 'serial', 'null' => false];
+
+				}  else if (is_array($data)) {
 					$this->_schema[$field]['type'] = $this->migratePgsql($data['type']);
+
 				} else {
 					$this->_schema[$field] = $this->migratePgsql($data);
 				}
