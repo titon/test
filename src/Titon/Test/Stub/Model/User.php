@@ -7,11 +7,10 @@
 
 namespace Titon\Test\Stub\Model;
 
-use Titon\Model\Model;
 use Titon\Model\Relation\ManyToOne;
 use Titon\Model\Relation\OneToOne;
 
-class User extends Model {
+class User extends TestModel {
 
 	protected $_config = [
 		'table' => 'users'

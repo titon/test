@@ -7,10 +7,9 @@
 
 namespace Titon\Test\Stub\Model;
 
-use Titon\Model\Model;
 use Titon\Model\Relation\ManyToOne;
 
-class Profile extends Model {
+class Profile extends TestModel {
 
 	protected $_config = [
 		'table' => 'profiles'

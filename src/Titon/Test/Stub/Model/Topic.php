@@ -7,10 +7,9 @@
 
 namespace Titon\Test\Stub\Model;
 
-use Titon\Model\Model;
 use Titon\Model\Relation\OneToMany;
 
-class Topic extends Model {
+class Topic extends TestModel {
 
 	protected $_config = [
 		'table' => 'topics'

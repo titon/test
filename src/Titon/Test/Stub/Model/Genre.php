@@ -7,11 +7,7 @@
 
 namespace Titon\Test\Stub\Model;
 
-use Titon\Model\Model;
-use Titon\Model\Relation\ManyToOne;
-use Titon\Model\Relation\OneToMany;
-
-class Genre extends Model {
+class Genre extends TestModel {
 
 	protected $_config = [
 		'table' => 'genres'

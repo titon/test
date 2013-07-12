@@ -7,10 +7,9 @@
 
 namespace Titon\Test\Stub\Model;
 
-use Titon\Model\Model;
 use Titon\Model\Relation\OneToOne;
 
-class Author extends Model {
+class Author extends TestModel {
 
 	protected $_config = [
 		'table' => 'authors'

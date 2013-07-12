@@ -7,9 +7,7 @@
 
 namespace Titon\Test\Stub\Model;
 
-use Titon\Model\Model;
-
-class Stat extends Model {
+class Stat extends TestModel {
 
 	protected $_config = [
 		'table' => 'stats'
