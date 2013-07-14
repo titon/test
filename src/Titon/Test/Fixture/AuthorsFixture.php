@@ -14,9 +14,9 @@ class AuthorsFixture extends TestFixture {
 	public $model = 'Titon\Test\Stub\Model\Author';
 
 	public $records = [
-		['id' => 1, 'name' => 'George R. R. Martin'],
-		['id' => 2, 'name' => 'J. K. Rowling'],
-		['id' => 3, 'name' => 'J. R. R. Tolkien'],
+		['name' => 'George R. R. Martin'],
+		['name' => 'J. K. Rowling'],
+		['name' => 'J. R. R. Tolkien'],
 	];
 
 }

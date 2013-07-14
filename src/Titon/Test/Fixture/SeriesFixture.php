@@ -14,9 +14,9 @@ class SeriesFixture extends TestFixture {
 	public $model = 'Titon\Test\Stub\Model\Series';
 
 	public $records = [
-		['id' => 1, 'author_id' => 1, 'name' => 'A Song of Ice and Fire'],
-		['id' => 2, 'author_id' => 2, 'name' => 'Harry Potter'],
-		['id' => 3, 'author_id' => 3, 'name' => 'The Lord of the Rings'],
+		['author_id' => 1, 'name' => 'A Song of Ice and Fire'],
+		['author_id' => 2, 'name' => 'Harry Potter'],
+		['author_id' => 3, 'name' => 'The Lord of the Rings'],
 	];
 
 }

@@ -14,11 +14,11 @@ class CountriesFixture extends TestFixture {
 	public $model = 'Titon\Test\Stub\Model\Country';
 
 	public $records = [
-		['id' => 1, 'name' => 'United States of America', 'iso' => 'USA'],
-		['id' => 2, 'name' => 'Canada', 'iso' => 'CAN'],
-		['id' => 3, 'name' => 'England', 'iso' => 'ENG'],
-		['id' => 4, 'name' => 'Australia', 'iso' => 'AUS'],
-		['id' => 5, 'name' => 'Mexico', 'iso' => 'MEX'],
+		['name' => 'United States of America', 'iso' => 'USA'],
+		['name' => 'Canada', 'iso' => 'CAN'],
+		['name' => 'England', 'iso' => 'ENG'],
+		['name' => 'Australia', 'iso' => 'AUS'],
+		['name' => 'Mexico', 'iso' => 'MEX'],
 	];
 
 }
