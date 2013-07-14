@@ -28,7 +28,10 @@ class Topic extends TestModel {
 		parent::initialize();
 
 		$this->addRelation(new OneToMany('Posts', 'Titon\Test\Stub\Model\Post'))
-			->setRelatedForeignKey('topic_id');
+			->setRelatedForeignKey('topic_id')
+			->setConditions(function() {
+				$this->orderBy('id', 'asc');
+			});
 	}
 
 }

@@ -31,7 +31,10 @@ class Series extends TestModel {
 
 		// Has many
 		$this->addRelation(new OneToMany('Books', 'Titon\Test\Stub\Model\Book'))
-			->setRelatedForeignKey('series_id');
+			->setRelatedForeignKey('series_id')
+			->setConditions(function() {
+				$this->orderBy('id', 'asc');
+			});
 	}
 
 }
