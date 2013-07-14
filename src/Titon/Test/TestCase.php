@@ -7,6 +7,8 @@
 
 namespace Titon\Test;
 
+date_default_timezone_set('UTC');
+
 /**
  * TestCase with more assert methods.
  */
@@ -61,9 +63,6 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 		$_SERVER['REQUEST_URI'] = '/';
 		$_SERVER['SERVER_ADDR'] = '';
 		$_SERVER['HTTP_USER_AGENT'] = 'titon';
-
-		// Setup environment
-		date_default_timezone_set('UTC');
 
 		// Start the router if it exists
 		if (class_exists('Titon\Route\Router')) {
