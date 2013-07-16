@@ -31,7 +31,18 @@ class TestModel extends Model {
 					$this->_schema[$field] = $this->migratePgsql($data);
 				}
 			}
+
+		} else if ($driver instanceof \Titon\Model\Mongo\MongoDriver) {
+			$this->config->primaryKey = '_id';
+			$this->_schema = [];
 		}
+	}
+
+	/**
+	 * Allow for driver changes.
+	 */
+	public function getPrimaryKey() {
+		return $this->config->primaryKey;
 	}
 
 	/**
