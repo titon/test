@@ -72,6 +72,15 @@ class TestCase extends \PHPUnit_Framework_TestCase {
 	}
 
 	/**
+	 * Unload fixtures.
+	 */
+	protected function tearDown() {
+		parent::tearDown();
+
+		$this->unloadFixtures();
+	}
+
+	/**
 	 * Strip new lines and tabs to test template files easily.
 	 *
 	 * @param string $string
