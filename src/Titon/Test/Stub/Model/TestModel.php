@@ -42,7 +42,11 @@ class TestModel extends Model {
 	 * Allow for driver changes.
 	 */
 	public function getPrimaryKey() {
-		return $this->config->primaryKey;
+		if ($this->getDriver() instanceof \Titon\Model\Mongo\MongoDriver) {
+			return '_id';
+		}
+
+		return parent::getPrimaryKey();
 	}
 
 	/**
