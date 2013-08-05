@@ -7,11 +7,12 @@
 
 namespace Titon\Test\Stub\Model;
 
+use Titon\Event\Event;
 use Titon\Model\Query;
 
 class UserSaveCallbacks extends User {
 
-	public function preSave($id, array $data) {
+	public function preSave(Event $event, $id, array &$data) {
 		if ($id === 1) {
 			return false;
 		}
@@ -22,10 +23,10 @@ class UserSaveCallbacks extends User {
 			$data['firstName'] = 'CREATE';
 		}
 
-		return $data;
+		return true;
 	}
 
-	public function postSave($id, $created = false) {
+	public function postSave(Event $event, $id, $created = false) {
 		$this->data = ['id' => $id, 'created' => $created];
 	}
 

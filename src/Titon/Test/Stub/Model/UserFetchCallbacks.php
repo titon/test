@@ -7,11 +7,12 @@
 
 namespace Titon\Test\Stub\Model;
 
+use Titon\Event\Event;
 use Titon\Model\Query;
 
 class UserFetchCallbacks extends User {
 
-	public function preFetch(Query $query, $fetchType) {
+	public function preFetch(Event $event, Query $query, $fetchType) {
 		if ($fetchType === 'fetch') {
 			return ['custom' => 'data'];
 
@@ -25,7 +26,7 @@ class UserFetchCallbacks extends User {
 		return true;
 	}
 
-	public function postFetch(array $results, $fetchType) {
+	public function postFetch(Event $event, array &$results, $fetchType) {
 		if (isset($this->testApply) && $fetchType === 'fetchAll') {
 			foreach ($results as &$result) {
 				if ($result['id'] % 2 == 0) {
@@ -33,8 +34,6 @@ class UserFetchCallbacks extends User {
 				}
 			}
 		}
-
-		return $results;
 	}
 
 }

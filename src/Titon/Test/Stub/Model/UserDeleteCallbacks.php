@@ -7,11 +7,12 @@
 
 namespace Titon\Test\Stub\Model;
 
+use Titon\Event\Event;
 use Titon\Model\Query;
 
 class UserDeleteCallbacks extends User {
 
-	public function preDelete($id, &$cascade) {
+	public function preDelete(Event $event, $id, &$cascade) {
 		if ($id === 1) {
 			return false;
 		} else if ($id === 3) {
@@ -21,7 +22,7 @@ class UserDeleteCallbacks extends User {
 		return true;
 	}
 
-	public function postDelete($id) {
+	public function postDelete(Event $event, $id) {
 		$this->data = ['id' => $id];
 	}
 
