@@ -3,7 +3,7 @@
 	"type": "library",
 	"description": "The Titon test package provides classes and fixtures used for test cases. This should not be used in production.",
 	"keywords": ["titon", "test"],
-	"homepage": "https://github.com/titon/Test",
+	"homepage": "http://titon.io",
 	"license": "BSD-2",
 	"authors": [
 		{
