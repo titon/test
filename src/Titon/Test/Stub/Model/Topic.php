@@ -18,6 +18,7 @@ class Topic extends TestModel {
 	protected $_schema = [
 		'id' => ['type' => 'int', 'ai' => true, 'primary' => true],
 		'title' => 'varchar',
+        'slug' => 'varchar',
 		'content' => 'text',
 		'post_count' => 'int',
 		'created' => 'datetime',
