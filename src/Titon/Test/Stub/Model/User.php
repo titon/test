@@ -24,7 +24,7 @@ class User extends TestModel {
         'email' => 'varchar',
         'firstName' => 'varchar',
         'lastName' => 'varchar',
-        'age' => 'tinyint',
+        'age' => 'smallint',
         'created' => 'datetime',
         'modified' => 'datetime'
     ];
