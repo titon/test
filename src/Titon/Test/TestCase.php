@@ -59,10 +59,14 @@ class TestCase extends \PHPUnit_Framework_TestCase {
         $_SESSION = array();
         $_REQUEST = array();
         $_SERVER['HTTP_HOST'] = 'localhost';
+        $_SERVER['DOCUMENT_ROOT'] = '/root';
+        $_SERVER['SCRIPT_FILENAME'] = '/root/index.php';
         $_SERVER['PHP_SELF'] = '/index.php';
         $_SERVER['REQUEST_URI'] = '/';
         $_SERVER['SERVER_ADDR'] = '';
         $_SERVER['HTTP_USER_AGENT'] = 'titon';
+        $_SERVER['PATH_INFO'] = '/';
+        $_SERVER['SERVER_PORT'] = 80;
 
         // Start the router if it exists
         if (class_exists('Titon\Route\Router')) {
