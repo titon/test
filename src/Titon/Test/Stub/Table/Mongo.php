@@ -7,9 +7,9 @@
 
 namespace Titon\Test\Stub\Table;
 
-use Titon\Db\Mongo\Db;
+use Titon\Db\Mongo\Collection;
 
-class Mongo extends Table {
+class Mongo extends Collection {
 
     protected $_config = [
         'primaryKey' => '_id',
