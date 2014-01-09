@@ -7,10 +7,10 @@
 
 namespace Titon\Test\Stub;
 
-use Titon\Model\Query\Result\AbstractResult;
+use Titon\Db\Query\Result\AbstractResult;
 
 /**
- * Stub for Titon\Model\Query\Result.
+ * Stub for Titon\Db\Query\Result.
  */
 class QueryResultStub extends AbstractResult {
 

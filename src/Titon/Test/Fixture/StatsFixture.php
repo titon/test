@@ -11,7 +11,7 @@ use Titon\Test\TestFixture;
 
 class StatsFixture extends TestFixture {
 
-    public $model = 'Titon\Test\Stub\Model\Stat';
+    public $table = 'Titon\Test\Stub\Table\Stat';
 
     public $records = [
         [

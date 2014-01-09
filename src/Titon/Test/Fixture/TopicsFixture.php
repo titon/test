@@ -11,7 +11,7 @@ use Titon\Test\TestFixture;
 
 class TopicsFixture extends TestFixture {
 
-    public $model = 'Titon\Test\Stub\Model\Topic';
+    public $table = 'Titon\Test\Stub\Table\Topic';
 
     public $records = [
         ['title' => 'Batman vs Superman?', 'slug' => 'batman-vs-superman', 'content' => 'Lorem ipsum dolor sit amet.', 'post_count' => 4],

@@ -5,11 +5,11 @@
  * @link        http://titon.io
  */
 
-namespace Titon\Test\Stub\Model;
+namespace Titon\Test\Stub\Table;
 
-use Titon\Model\Model;
+use Titon\Db\Table;
 
-class TestModel extends Model {
+class TestTable extends Table {
 
     /**
      * Swap between types depending on the driver.
@@ -19,7 +19,7 @@ class TestModel extends Model {
 
         $driver = $this->getDriver();
 
-        if ($driver instanceof \Titon\Model\Pgsql\PgsqlDriver) {
+        if ($driver instanceof \Titon\Db\Pgsql\PgsqlDriver) {
             foreach ($this->_schema as $field => $data) {
                 if ($field === 'id') {
                     $this->_schema[$field] = ['type' => 'serial', 'null' => false, 'primary' => true];
@@ -32,7 +32,7 @@ class TestModel extends Model {
                 }
             }
 
-        } else if ($driver instanceof \Titon\Model\Mongo\MongoDriver) {
+        } else if ($driver instanceof \Titon\Db\Mongo\MongoDriver) {
             $this->config->primaryKey = '_id';
             $this->_schema = [];
         }
@@ -42,7 +42,7 @@ class TestModel extends Model {
      * Allow for driver changes.
      */
     public function getPrimaryKey() {
-        if ($this->getDriver() instanceof \Titon\Model\Mongo\MongoDriver) {
+        if ($this->getDriver() instanceof \Titon\Db\Mongo\MongoDriver) {
             return '_id';
         }
 

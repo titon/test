@@ -11,7 +11,7 @@ use Titon\Test\TestFixture;
 
 class BooksFixture extends TestFixture {
 
-    public $model = 'Titon\Test\Stub\Model\Book';
+    public $table = 'Titon\Test\Stub\Table\Book';
 
     public $records = [
         ['series_id' => 1, 'name' => 'A Game of Thrones', 'isbn' => '0-553-10354-7', 'released' => '1996-08-02'],

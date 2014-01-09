@@ -7,10 +7,10 @@
 
 namespace Titon\Test\Stub;
 
-use Titon\Model\Behavior\AbstractBehavior;
+use Titon\Db\Behavior\AbstractBehavior;
 
 /**
- * Stub for Titon\Model\Behavior.
+ * Stub for Titon\Db\Behavior.
  */
 class BehaviorStub extends AbstractBehavior {
 

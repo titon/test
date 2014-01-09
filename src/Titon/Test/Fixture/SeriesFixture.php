@@ -11,7 +11,7 @@ use Titon\Test\TestFixture;
 
 class SeriesFixture extends TestFixture {
 
-    public $model = 'Titon\Test\Stub\Model\Series';
+    public $table = 'Titon\Test\Stub\Table\Series';
 
     public $records = [
         ['author_id' => 1, 'name' => 'A Song of Ice and Fire'],

@@ -5,10 +5,10 @@
  * @link        http://titon.io
  */
 
-namespace Titon\Test\Stub\Model;
+namespace Titon\Test\Stub\Table;
 
 use Titon\Event\Event;
-use Titon\Model\Query;
+use Titon\Db\Query;
 
 class UserSaveCallbacks extends User {
 

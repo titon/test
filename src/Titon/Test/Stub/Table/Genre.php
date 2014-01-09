@@ -5,18 +5,18 @@
  * @link        http://titon.io
  */
 
-namespace Titon\Test\Stub\Model;
+namespace Titon\Test\Stub\Table;
 
-class Country extends TestModel {
+class Genre extends TestTable {
 
     protected $_config = [
-        'table' => 'countries'
+        'table' => 'genres'
     ];
 
     protected $_schema = [
         'id' => ['type' => 'int', 'ai' => true, 'primary' => true],
         'name' => 'varchar',
-        'iso' => 'varchar'
+        'book_count' => 'int'
     ];
 
 }

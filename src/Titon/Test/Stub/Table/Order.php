@@ -5,9 +5,9 @@
  * @link        http://titon.io
  */
 
-namespace Titon\Test\Stub\Model;
+namespace Titon\Test\Stub\Table;
 
-class Order extends TestModel {
+class Order extends TestTable {
 
     protected $_config = [
         'table' => 'orders'

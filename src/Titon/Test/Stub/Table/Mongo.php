@@ -5,11 +5,11 @@
  * @link        http://titon.io
  */
 
-namespace Titon\Test\Stub\Model;
+namespace Titon\Test\Stub\Table;
 
-use Titon\Model\Mongo\Model;
+use Titon\Db\Mongo\Db;
 
-class Mongo extends Model {
+class Mongo extends Table {
 
     protected $_config = [
         'primaryKey' => '_id',

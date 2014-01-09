@@ -11,7 +11,7 @@ use Titon\Test\TestFixture;
 
 class OrdersFixture extends TestFixture {
 
-    public $model = 'Titon\Test\Stub\Model\Order';
+    public $table = 'Titon\Test\Stub\Table\Order';
 
     public $records = [
         ['user_id' => 1, 'quantity' => 15, 'status' => 'pending', 'shipped' => null],

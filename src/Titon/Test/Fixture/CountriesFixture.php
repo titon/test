@@ -11,7 +11,7 @@ use Titon\Test\TestFixture;
 
 class CountriesFixture extends TestFixture {
 
-    public $model = 'Titon\Test\Stub\Model\Country';
+    public $table = 'Titon\Test\Stub\Table\Country';
 
     public $records = [
         ['name' => 'United States of America', 'iso' => 'USA'],

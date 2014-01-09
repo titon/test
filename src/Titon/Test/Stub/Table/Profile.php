@@ -5,11 +5,11 @@
  * @link        http://titon.io
  */
 
-namespace Titon\Test\Stub\Model;
+namespace Titon\Test\Stub\Table;
 
-use Titon\Model\Relation\ManyToOne;
+use Titon\Db\Relation\ManyToOne;
 
-class Profile extends TestModel {
+class Profile extends TestTable {
 
     protected $_config = [
         'table' => 'profiles'
@@ -25,7 +25,7 @@ class Profile extends TestModel {
     public function initialize() {
         parent::initialize();
 
-        $this->addRelation(new ManyToOne('User', 'Titon\Test\Stub\Model\User'))
+        $this->addRelation(new ManyToOne('User', 'Titon\Test\Stub\Table\User'))
             ->setForeignKey('user_id');
     }
 

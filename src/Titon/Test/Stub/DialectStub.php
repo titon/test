@@ -7,10 +7,10 @@
 
 namespace Titon\Test\Stub;
 
-use Titon\Model\Driver\Dialect\AbstractPdoDialect;
+use Titon\Db\Driver\Dialect\AbstractPdoDialect;
 
 /**
- * Stub for Titon\Model\Driver\Dialect.
+ * Stub for Titon\Db\Driver\Dialect.
  */
 class DialectStub extends AbstractPdoDialect {
 

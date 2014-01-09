@@ -5,11 +5,11 @@
  * @link        http://titon.io
  */
 
-namespace Titon\Test\Stub\Model;
+namespace Titon\Test\Stub\Table;
 
-use Titon\Model\Relation\ManyToOne;
+use Titon\Db\Relation\ManyToOne;
 
-class Post extends TestModel {
+class Post extends TestTable {
 
     protected $_config = [
         'table' => 'posts'
@@ -25,7 +25,7 @@ class Post extends TestModel {
     public function initialize() {
         parent::initialize();
 
-        $this->addRelation(new ManyToOne('Topic', 'Titon\Test\Stub\Model\Topic'))
+        $this->addRelation(new ManyToOne('Topic', 'Titon\Test\Stub\Table\Topic'))
             ->setForeignKey('topic_id');
     }
 

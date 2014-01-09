@@ -5,12 +5,12 @@
  * @link        http://titon.io
  */
 
-namespace Titon\Test\Stub\Model;
+namespace Titon\Test\Stub\Table;
 
-use Titon\Model\Relation\ManyToOne;
-use Titon\Model\Relation\OneToOne;
+use Titon\Db\Relation\ManyToOne;
+use Titon\Db\Relation\OneToOne;
 
-class User extends TestModel {
+class User extends TestTable {
 
     protected $_config = [
         'table' => 'users'
@@ -32,10 +32,10 @@ class User extends TestModel {
     public function initialize() {
         parent::initialize();
 
-        $this->addRelation(new OneToOne('Profile', 'Titon\Test\Stub\Model\Profile'))
+        $this->addRelation(new OneToOne('Profile', 'Titon\Test\Stub\Table\Profile'))
             ->setRelatedForeignKey('user_id');
 
-        $this->addRelation(new ManyToOne('Country', 'Titon\Test\Stub\Model\Country'))
+        $this->addRelation(new ManyToOne('Country', 'Titon\Test\Stub\Table\Country'))
             ->setForeignKey('country_id');
     }
 

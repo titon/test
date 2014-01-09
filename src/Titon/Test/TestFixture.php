@@ -7,21 +7,21 @@
 
 namespace Titon\Test;
 
-use Titon\Model\Model;
-use Titon\Model\Query;
+use Titon\Db\Table;
+use Titon\Db\Query;
 use \Exception;
 
 /**
- * Allows fixtures to setup database records through the model layer.
+ * Allows fixtures to setup database records through the db layer.
  */
 class TestFixture {
 
     /**
-     * Name of model to use.
+     * Name of table to use.
      *
      * @type string
      */
-    public $model;
+    public $table;
 
     /**
      * List of records to insert into the table.
@@ -31,20 +31,20 @@ class TestFixture {
     public $records = array();
 
     /**
-     * Model instance.
+     * Table instance.
      *
-     * @type \Titon\Model\Model
+     * @type \Titon\Db\Table
      */
-    protected $_model;
+    protected $_table;
 
     /**
-     * Create the database table using the model's schema.
+     * Create the database table using the table's schema.
      *
      * @return bool
      * @throws \Exception
      */
     public function createTable() {
-        if (!$this->loadModel()->createTable()) {
+        if (!$this->loadTable()->createTable()) {
             throw new Exception(sprintf('Failed to create database table for %s', get_class($this)));
         }
 
@@ -57,28 +57,28 @@ class TestFixture {
      * @return bool
      */
     public function dropTable() {
-        return (bool) $this->loadModel()->query(Query::DROP_TABLE)->save();
+        return (bool) $this->loadTable()->query(Query::DROP_TABLE)->save();
     }
 
     /**
-     * Instantiate a new model instance.
+     * Instantiate a new table instance.
      *
-     * @return \Titon\Model\Model
+     * @return \Titon\Db\Table
      * @throws \Exception
      */
-    public function loadModel() {
-        if ($this->_model) {
-            return $this->_model;
+    public function loadTable() {
+        if ($this->_table) {
+            return $this->_table;
         }
 
-        if (!$this->model) {
-            throw new Exception(sprintf('Model for %s has not been defined', get_class($this)));
+        if (!$this->table) {
+            throw new Exception(sprintf('Table for %s has not been defined', get_class($this)));
         }
 
-        $name = $this->model;
-        $this->_model = new $name();
+        $name = $this->table;
+        $this->_table = new $name();
 
-        return $this->_model;
+        return $this->_table;
     }
 
     /**
@@ -87,10 +87,10 @@ class TestFixture {
      * @return bool
      */
     public function insertRecords() {
-        $model = $this->loadModel();
+        $table = $this->loadTable();
 
         foreach ($this->records as $record) {
-            $model->create($record);
+            $table->create($record);
         }
 
         return true;
@@ -102,7 +102,7 @@ class TestFixture {
      * @return bool
      */
     public function truncateTable() {
-        return (bool) $this->loadModel()->query(Query::TRUNCATE)->save();
+        return (bool) $this->loadTable()->query(Query::TRUNCATE)->save();
     }
 
 }
