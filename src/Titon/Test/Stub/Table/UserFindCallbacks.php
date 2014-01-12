@@ -10,24 +10,24 @@ namespace Titon\Test\Stub\Table;
 use Titon\Event\Event;
 use Titon\Db\Query;
 
-class UserFetchCallbacks extends User {
+class UserFindCallbacks extends User {
 
-    public function preFetch(Event $event, Query $query, $fetchType) {
-        if ($fetchType === 'fetch') {
+    public function preFind(Event $event, Query $query, $finder) {
+        if ($finder === 'first') {
             return ['custom' => 'data'];
 
-        } else if ($fetchType === 'fetchAll') {
+        } else if ($finder === 'all') {
             $query->fields('id', 'username');
 
-        } else if ($fetchType === 'fetchList') {
+        } else if ($finder === 'list') {
             return false;
         }
 
         return true;
     }
 
-    public function postFetch(Event $event, array &$results, $fetchType) {
-        if (isset($this->testApply) && $fetchType === 'fetchAll') {
+    public function postFind(Event $event, array &$results, $finder) {
+        if (isset($this->testApply) && $finder === 'all') {
             foreach ($results as &$result) {
                 if ($result['id'] % 2 == 0) {
                     $result['foo'] = 'bar';

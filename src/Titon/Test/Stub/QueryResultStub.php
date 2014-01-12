@@ -30,10 +30,7 @@ class QueryResultStub extends AbstractResult {
     public function execute() {
     }
 
-    public function fetch() {
-    }
-
-    public function fetchAll() {
+    public function find() {
     }
 
     public function save() {
