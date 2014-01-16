@@ -25,4 +25,17 @@ class User extends Model {
         'Profile' => ['Titon\Test\Stub\Model\Profile', 'user_id']
     ];
 
+    protected $validate = [
+        'username' => 'between:5,25|alphaNumeric',
+        'firstName' => 'alpha',
+        'lastName' => 'numeric'
+    ];
+
+    protected $messages = [
+        'between' => 'Must be between {0} and {1} chars',
+        'alphaNumeric' => 'Must be alpha numeric',
+        'alpha' => 'Must be alphabetical',
+        'numeric' => 'Must be a number'
+    ];
+
 }
