@@ -5,18 +5,21 @@
  * @link        http://titon.io
  */
 
-namespace Titon\Test\Stub\Table;
+namespace Titon\Test\Stub\Repository;
 
-class Genre extends TestTable {
+class Order extends TestRepository {
 
     protected $_config = [
-        'table' => 'genres'
+        'table' => 'orders'
     ];
 
     protected $_schema = [
         'id' => ['type' => 'int', 'ai' => true, 'primary' => true],
-        'name' => 'varchar',
-        'book_count' => 'int'
+        'user_id' => ['type' => 'int', 'index' => true],
+        'quantity' => 'int',
+        'status' => 'varchar',
+        'shipped' => 'datetime'
     ];
+
 
 }

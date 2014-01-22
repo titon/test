@@ -11,7 +11,7 @@ use Titon\Test\TestFixture;
 
 class BookGenresFixture extends TestFixture {
 
-    public $table = 'Titon\Test\Stub\Table\BookGenre';
+    public $table = 'Titon\Test\Stub\Repository\BookGenre';
 
     public $records = [
         ['book_id' => 1, 'genre_id' => 8],

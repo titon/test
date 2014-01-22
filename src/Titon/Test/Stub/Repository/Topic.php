@@ -5,11 +5,11 @@
  * @link        http://titon.io
  */
 
-namespace Titon\Test\Stub\Table;
+namespace Titon\Test\Stub\Repository;
 
 use Titon\Db\Relation\OneToMany;
 
-class Topic extends TestTable {
+class Topic extends TestRepository {
 
     protected $_config = [
         'table' => 'topics'
@@ -28,7 +28,7 @@ class Topic extends TestTable {
     public function initialize() {
         parent::initialize();
 
-        $this->addRelation(new OneToMany('Posts', 'Titon\Test\Stub\Table\Post'))
+        $this->addRelation(new OneToMany('Posts', 'Titon\Test\Stub\Repository\Post'))
             ->setRelatedForeignKey('topic_id')
             ->setConditions(function() {
                 $this->orderBy('id', 'asc');

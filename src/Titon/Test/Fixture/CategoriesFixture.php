@@ -11,7 +11,7 @@ use Titon\Test\TestFixture;
 
 class CategoriesFixture extends TestFixture {
 
-    public $table = 'Titon\Test\Stub\Table\Category';
+    public $table = 'Titon\Test\Stub\Repository\Category';
 
     public $records = [
         ['name' => 'Fruit', 'parent_id' => null, 'left' => 1, 'right' => 20], // 1

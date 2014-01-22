@@ -11,7 +11,7 @@ use Titon\Test\TestFixture;
 
 class PostsFixture extends TestFixture {
 
-    public $table = 'Titon\Test\Stub\Table\Post';
+    public $table = 'Titon\Test\Stub\Repository\Post';
 
     public $records = [
         ['topic_id' => 1, 'active' => 1, 'content' => 'Curabitur vulputate sem eget metus dignissim varius.'],

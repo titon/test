@@ -5,9 +5,9 @@
  * @link        http://titon.io
  */
 
-namespace Titon\Test\Stub\Table;
+namespace Titon\Test\Stub\Repository;
 
-class Country extends TestTable {
+class Country extends TestRepository {
 
     protected $_config = [
         'table' => 'countries'

@@ -5,9 +5,9 @@
  * @link        http://titon.io
  */
 
-namespace Titon\Test\Stub\Table;
+namespace Titon\Test\Stub\Repository;
 
-class Category extends TestTable {
+class Category extends TestRepository {
 
     protected $_config = [
         'table' => 'categories',

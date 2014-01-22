@@ -7,7 +7,7 @@
 
 namespace Titon\Test;
 
-use Titon\Db\Table;
+use Titon\Db\Repository;
 use Titon\Db\Query;
 use \Exception;
 
@@ -31,11 +31,11 @@ class TestFixture {
     public $records = array();
 
     /**
-     * Table instance.
+     * Repository instance.
      *
-     * @type \Titon\Db\Table
+     * @type \Titon\Db\Repository
      */
-    protected $_table;
+    protected $_repository;
 
     /**
      * Create the database table using the table's schema.
@@ -44,7 +44,7 @@ class TestFixture {
      * @throws \Exception
      */
     public function createTable() {
-        if (!$this->loadTable()->createTable()) {
+        if (!$this->loadRepository()->createTable()) {
             throw new Exception(sprintf('Failed to create database table for %s', get_class($this)));
         }
 
@@ -57,28 +57,28 @@ class TestFixture {
      * @return bool
      */
     public function dropTable() {
-        return (bool) $this->loadTable()->query(Query::DROP_TABLE)->save();
+        return (bool) $this->loadRepository()->query(Query::DROP_TABLE)->save();
     }
 
     /**
      * Instantiate a new table instance.
      *
-     * @return \Titon\Db\Table
+     * @return \Titon\Db\Repository
      * @throws \Exception
      */
-    public function loadTable() {
-        if ($this->_table) {
-            return $this->_table;
+    public function loadRepository() {
+        if ($this->_repository) {
+            return $this->_repository;
         }
 
         if (!$this->table) {
-            throw new Exception(sprintf('Table for %s has not been defined', get_class($this)));
+            throw new Exception(sprintf('Repository for %s has not been defined', get_class($this)));
         }
 
         $name = $this->table;
-        $this->_table = new $name();
+        $this->_repository = new $name();
 
-        return $this->_table;
+        return $this->_repository;
     }
 
     /**
@@ -87,7 +87,7 @@ class TestFixture {
      * @return bool
      */
     public function insertRecords() {
-        $table = $this->loadTable();
+        $table = $this->loadRepository();
 
         foreach ($this->records as $record) {
             $table->create($record);
@@ -102,7 +102,7 @@ class TestFixture {
      * @return bool
      */
     public function truncateTable() {
-        return (bool) $this->loadTable()->query(Query::TRUNCATE)->save();
+        return (bool) $this->loadRepository()->query(Query::TRUNCATE)->save();
     }
 
 }

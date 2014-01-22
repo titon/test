@@ -5,11 +5,11 @@
  * @link        http://titon.io
  */
 
-namespace Titon\Test\Stub\Table;
+namespace Titon\Test\Stub\Repository;
 
 use Titon\Db\Relation\ManyToOne;
 
-class BookGenre extends TestTable {
+class BookGenre extends TestRepository {
 
     protected $_config = [
         'table' => 'books_genres'
@@ -25,10 +25,10 @@ class BookGenre extends TestTable {
         parent::initialize();
 
         // Belongs to
-        $this->addRelation(new ManyToOne('Book', 'Titon\Test\Stub\Table\Book'))
+        $this->addRelation(new ManyToOne('Book', 'Titon\Test\Stub\Repository\Book'))
             ->setForeignKey('book_id');
 
-        $this->addRelation(new ManyToOne('Genre', 'Titon\Test\Stub\Table\Genre'))
+        $this->addRelation(new ManyToOne('Genre', 'Titon\Test\Stub\Repository\Genre'))
             ->setForeignKey('genre_id');
     }
 

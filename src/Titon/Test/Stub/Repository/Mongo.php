@@ -5,7 +5,7 @@
  * @link        http://titon.io
  */
 
-namespace Titon\Test\Stub\Table;
+namespace Titon\Test\Stub\Repository;
 
 use Titon\Db\Mongo\Collection;
 

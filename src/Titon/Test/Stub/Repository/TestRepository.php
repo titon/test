@@ -5,11 +5,11 @@
  * @link        http://titon.io
  */
 
-namespace Titon\Test\Stub\Table;
+namespace Titon\Test\Stub\Repository;
 
-use Titon\Db\Table;
+use Titon\Db\Repository;
 
-class TestTable extends Table {
+class TestRepository extends Repository {
 
     /**
      * Swap between types depending on the driver.

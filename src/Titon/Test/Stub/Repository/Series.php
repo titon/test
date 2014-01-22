@@ -5,12 +5,12 @@
  * @link        http://titon.io
  */
 
-namespace Titon\Test\Stub\Table;
+namespace Titon\Test\Stub\Repository;
 
 use Titon\Db\Relation\ManyToOne;
 use Titon\Db\Relation\OneToMany;
 
-class Series extends TestTable {
+class Series extends TestRepository {
 
     protected $_config = [
         'table' => 'series'
@@ -26,11 +26,11 @@ class Series extends TestTable {
         parent::initialize();
 
         // Belongs to
-        $this->addRelation(new ManyToOne('Author', 'Titon\Test\Stub\Table\Author'))
+        $this->addRelation(new ManyToOne('Author', 'Titon\Test\Stub\Repository\Author'))
             ->setForeignKey('author_id');
 
         // Has many
-        $this->addRelation(new OneToMany('Books', 'Titon\Test\Stub\Table\Book'))
+        $this->addRelation(new OneToMany('Books', 'Titon\Test\Stub\Repository\Book'))
             ->setRelatedForeignKey('series_id')
             ->setConditions(function() {
                 $this->orderBy('id', 'asc');

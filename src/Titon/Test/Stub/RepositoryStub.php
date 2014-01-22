@@ -7,12 +7,12 @@
 
 namespace Titon\Test\Stub;
 
-use Titon\Db\Table;
+use Titon\Db\Repository;
 
 /**
- * Stub for Titon\Db\Table
+ * Stub for Titon\Db\Repository
  */
-class TableStub extends Table {
+class RepositoryStub extends Repository {
 
     protected $_config = [
         'table' => 'stub',

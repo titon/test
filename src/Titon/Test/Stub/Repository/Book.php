@@ -5,12 +5,12 @@
  * @link        http://titon.io
  */
 
-namespace Titon\Test\Stub\Table;
+namespace Titon\Test\Stub\Repository;
 
 use Titon\Db\Relation\ManyToMany;
 use Titon\Db\Relation\ManyToOne;
 
-class Book extends TestTable {
+class Book extends TestRepository {
 
     protected $_config = [
         'table' => 'books'
@@ -28,14 +28,14 @@ class Book extends TestTable {
         parent::initialize();
 
         // Belongs to
-        $this->addRelation(new ManyToOne('Series', 'Titon\Test\Stub\Table\Series'))
+        $this->addRelation(new ManyToOne('Series', 'Titon\Test\Stub\Repository\Series'))
             ->setForeignKey('series_id');
 
         // Belongs to many
-        $this->addRelation(new ManyToMany('Genres', 'Titon\Test\Stub\Table\Genre'))
+        $this->addRelation(new ManyToMany('Genres', 'Titon\Test\Stub\Repository\Genre'))
             ->setForeignKey('book_id')
             ->setRelatedForeignKey('genre_id')
-            ->setJunctionClass('Titon\Test\Stub\Table\BookGenre');
+            ->setJunctionClass('Titon\Test\Stub\Repository\BookGenre');
     }
 
 }

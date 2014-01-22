@@ -5,28 +5,28 @@
  * @link        http://titon.io
  */
 
-namespace Titon\Test\Stub\Table;
+namespace Titon\Test\Stub\Repository;
 
 use Titon\Db\Relation\ManyToOne;
 
-class Post extends TestTable {
+class Profile extends TestRepository {
 
     protected $_config = [
-        'table' => 'posts'
+        'table' => 'profiles'
     ];
 
     protected $_schema = [
         'id' => ['type' => 'int', 'ai' => true, 'primary' => true],
-        'topic_id' => ['type' => 'int', 'index' => true],
-        'active' => 'smallint',
-        'content' => 'text'
+        'user_id' => ['type' => 'int', 'index' => true],
+        'lastLogin' => 'datetime',
+        'currentLogin' => 'datetime'
     ];
 
     public function initialize() {
         parent::initialize();
 
-        $this->addRelation(new ManyToOne('Topic', 'Titon\Test\Stub\Table\Topic'))
-            ->setForeignKey('topic_id');
+        $this->addRelation(new ManyToOne('User', 'Titon\Test\Stub\Repository\User'))
+            ->setForeignKey('user_id');
     }
 
 }

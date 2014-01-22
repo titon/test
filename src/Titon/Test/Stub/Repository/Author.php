@@ -5,11 +5,11 @@
  * @link        http://titon.io
  */
 
-namespace Titon\Test\Stub\Table;
+namespace Titon\Test\Stub\Repository;
 
 use Titon\Db\Relation\OneToOne;
 
-class Author extends TestTable {
+class Author extends TestRepository {
 
     protected $_config = [
         'table' => 'authors'
@@ -24,7 +24,7 @@ class Author extends TestTable {
         parent::initialize();
 
         // Has one
-        $this->addRelation(new OneToOne('Series', 'Titon\Test\Stub\Table\Series'))
+        $this->addRelation(new OneToOne('Series', 'Titon\Test\Stub\Repository\Series'))
             ->setRelatedForeignKey('author_id');
     }
 
