@@ -18,8 +18,11 @@ class Post extends TestRepository {
     protected $_schema = [
         'id' => ['type' => 'int', 'ai' => true, 'primary' => true],
         'topic_id' => ['type' => 'int', 'index' => true],
-        'active' => 'smallint',
-        'content' => 'text'
+        'active' => ['type' => 'smallint', 'default' => 0],
+        'deleted' => ['type' => 'smallint', 'default' => 0],
+        'content' => 'text',
+        'created_at' => 'datetime',
+        'deleted_at' => 'datetime'
     ];
 
     public function initialize() {
