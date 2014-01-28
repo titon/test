@@ -7,9 +7,7 @@
 
 namespace Titon\Test\Stub\Model;
 
-use Titon\Model\Model;
-
-class BookGenre extends Model {
+class BookGenre extends TestModel {
 
     protected $table = 'books_genres';
 

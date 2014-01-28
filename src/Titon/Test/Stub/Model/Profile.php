@@ -7,9 +7,7 @@
 
 namespace Titon\Test\Stub\Model;
 
-use Titon\Model\Model;
-
-class Profile extends Model {
+class Profile extends TestModel {
 
     protected $table = 'profiles';
 
