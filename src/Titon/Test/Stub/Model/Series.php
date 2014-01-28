@@ -14,7 +14,7 @@ class Series extends Model {
     protected $table = 'series';
 
     protected $hasMany = [
-        'Books' => ['Titon\Test\Stub\Table\Book', 'series_id']
+        'Books' => ['Titon\Test\Stub\Model\Book', 'series_id']
     ];
 
 }
