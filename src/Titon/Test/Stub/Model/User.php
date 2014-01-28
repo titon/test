@@ -38,4 +38,15 @@ class User extends Model {
         'numeric' => 'Must be a number'
     ];
 
+    public function getFullNameField($value) {
+        return $this->firstName . ' ' . $this->lastName;
+    }
+
+    public function setFullNameField($value) {
+        list($first, $last) = explode(' ', $value);
+
+        $this->firstName = $first;
+        $this->lastName = $last;
+    }
+
 }
