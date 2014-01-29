@@ -14,7 +14,18 @@ use Titon\Model\Model;
 class TestModel extends Model {
 
     /**
-     * Swap between types depending on the driver.
+     * Fix PK for MongoDB.
+     */
+    public function initialize() {
+        $driver = Registry::factory('Titon\Db\Connection')->getDriver('default');
+
+        if ($driver instanceof \Titon\Db\Mongo\MongoDriver) {
+            $this->primaryKey = '_id';
+        }
+    }
+
+    /**
+     * Fix repo for MongoDB.
      */
     public function getRepository() {
         $driver = Registry::factory('Titon\Db\Connection')->getDriver('default');
