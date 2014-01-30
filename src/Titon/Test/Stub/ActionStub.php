@@ -14,11 +14,17 @@ use Titon\Controller\Action\AbstractAction;
  */
 class ActionStub extends AbstractAction {
 
-    public function run() {
+    public function get() {
         $this->_controller->config->add(array(
             'foo' => 'baz',
             'test' => 'value'
         ));
     }
+
+    public function post() {}
+
+    public function delete() {}
+
+    public function put() {}
 
 }
