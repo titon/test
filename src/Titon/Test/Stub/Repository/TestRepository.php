@@ -33,7 +33,7 @@ class TestRepository extends Repository {
             }
 
         } else if ($driver instanceof \Titon\Db\Mongo\MongoDriver) {
-            $this->config->primaryKey = '_id';
+            $this->setConfig('primaryKey', '_id');
             $this->_schema = [];
         }
     }

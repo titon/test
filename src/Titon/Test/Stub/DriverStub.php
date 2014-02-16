@@ -25,7 +25,7 @@ class DriverStub extends AbstractPdoDriver {
     }
 
     public function getDsn() {
-        if ($dsn = $this->config->dsn) {
+        if ($dsn = $this->getConfig('dsn')) {
             return $dsn;
         }
 

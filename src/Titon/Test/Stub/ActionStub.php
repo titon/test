@@ -15,7 +15,7 @@ use Titon\Controller\Action\AbstractAction;
 class ActionStub extends AbstractAction {
 
     public function get() {
-        $this->_controller->config->add(array(
+        $this->_controller->addConfig(array(
             'foo' => 'baz',
             'test' => 'value'
         ));
