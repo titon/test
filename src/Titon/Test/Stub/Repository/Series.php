@@ -7,6 +7,7 @@
 
 namespace Titon\Test\Stub\Repository;
 
+use Titon\Db\Query;
 use Titon\Db\Relation\ManyToOne;
 use Titon\Db\Relation\OneToMany;
 
@@ -32,8 +33,8 @@ class Series extends TestRepository {
         // Has many
         $this->addRelation(new OneToMany('Books', 'Titon\Test\Stub\Repository\Book'))
             ->setRelatedForeignKey('series_id')
-            ->setConditions(function() {
-                $this->orderBy('id', 'asc');
+            ->setConditions(function(Query $query) {
+                $query->orderBy('id', 'asc');
             });
     }
 
