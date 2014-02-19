@@ -7,12 +7,12 @@
 
 namespace Titon\Test\Stub;
 
-use Titon\Db\Query\Result\AbstractResult;
+use Titon\Db\Query\ResultSet\AbstractResultSet;
 
 /**
- * Stub for Titon\Db\Query\Result.
+ * Stub for Titon\Db\Query\ResultSet.
  */
-class QueryResultStub extends AbstractResult {
+class QueryResultSetStub extends AbstractResultSet {
 
     public function __construct($statement, array $params = []) {
         $this->_statement = $statement;
