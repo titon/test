@@ -22,4 +22,10 @@ class Category extends TestRepository {
         'right' => ['type' => 'smallint', 'index' => true],
     ];
 
+    public function initialize() {
+        parent::initialize();
+
+        $this->belongsTo('Parent', 'Titon\Test\Stub\Repository\Category', 'parent_id');
+    }
+
 }
