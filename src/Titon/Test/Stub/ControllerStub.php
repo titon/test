@@ -34,6 +34,6 @@ class ControllerStub extends AbstractController {
         return 'wontBeCalled';
     }
 
-    public function renderView() { }
+    public function renderView($template = null) { }
 
 }
