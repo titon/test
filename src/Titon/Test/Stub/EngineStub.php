@@ -7,7 +7,7 @@
 
 namespace Titon\Test\Stub;
 
-use Titon\View\Engine\AbstractEngine;
+use Titon\View\View\Engine\AbstractEngine;
 
 /**
  * Stub for Titon\View\Engine.
