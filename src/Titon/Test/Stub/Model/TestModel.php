@@ -7,7 +7,7 @@
 
 namespace Titon\Test\Stub\Model;
 
-use Titon\Common\Registry;
+use Titon\Db\Database;
 use Titon\Db\Mongo\Collection;
 use Titon\Model\Model;
 
@@ -17,7 +17,7 @@ class TestModel extends Model {
      * Fix PK for MongoDB.
      */
     public function initialize() {
-        $driver = Registry::factory('Titon\Db\Connection')->getDriver('default');
+        $driver = Database::registry()->getDriver('default');
 
         if ($driver instanceof \Titon\Db\Mongo\MongoDriver) {
             $this->primaryKey = '_id';
@@ -28,7 +28,7 @@ class TestModel extends Model {
      * Fix repo for MongoDB.
      */
     public function getRepository() {
-        $driver = Registry::factory('Titon\Db\Connection')->getDriver('default');
+        $driver = Database::registry()->getDriver('default');
 
         if ($driver instanceof \Titon\Db\Mongo\MongoDriver && !$this->_repository) {
             $this->setRepository(new Collection([

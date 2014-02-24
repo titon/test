@@ -36,11 +36,11 @@ class User extends TestModel {
         'numeric' => 'Must be a number'
     ];
 
-    public function getFullNameField($value) {
+    public function getFullNameAttribute($value) {
         return $this->firstName . ' ' . $this->lastName;
     }
 
-    public function setFullNameField($value) {
+    public function setFullNameAttribute($value) {
         list($first, $last) = explode(' ', $value);
 
         $this->firstName = $first;
