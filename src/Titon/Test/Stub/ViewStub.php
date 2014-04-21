@@ -14,7 +14,7 @@ use Titon\View\View\AbstractView;
  */
 class ViewStub extends AbstractView {
 
-    public function render($template) {}
+    public function render($template, $private = false) {}
     public function renderTemplate($path, array $variables = array()) {}
 
 }
