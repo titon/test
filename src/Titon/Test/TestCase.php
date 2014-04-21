@@ -68,6 +68,7 @@ class TestCase extends \PHPUnit_Framework_TestCase {
         $_SERVER['HTTP_USER_AGENT'] = 'titon';
         $_SERVER['PATH_INFO'] = '/';
         $_SERVER['SERVER_PORT'] = 80;
+        $_SERVER['HTTPS'] = 'off';
     }
 
     /**
