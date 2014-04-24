@@ -12,7 +12,8 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=5.3.0",
+        "mockery/mockery": "*"
     },
     "autoload": {
         "psr-0": { "Titon\\Test": "src/" }
