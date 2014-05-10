@@ -28,8 +28,18 @@ class Post extends TestRepository {
     public function initialize() {
         parent::initialize();
 
-        $this->addRelation(new ManyToOne('Topic', 'Titon\Test\Stub\Repository\Topic'))
-            ->setForeignKey('topic_id');
+        $this->addRelation(
+            (new ManyToOne('Topic', 'Titon\Test\Stub\Repository\Topic'))
+                ->setForeignKey('topic_id')
+        );
+    }
+
+    public function toHash($value, array $options) {
+        return base64_encode(serialize($value));
+    }
+
+    public function fromHash($value, array $options) {
+        return unserialize(base64_decode($value));
     }
 
 }

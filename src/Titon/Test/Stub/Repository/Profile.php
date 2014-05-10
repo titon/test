@@ -25,8 +25,10 @@ class Profile extends TestRepository {
     public function initialize() {
         parent::initialize();
 
-        $this->addRelation(new ManyToOne('User', 'Titon\Test\Stub\Repository\User'))
-            ->setForeignKey('user_id');
+        $this->addRelation(
+            (new ManyToOne('User', 'Titon\Test\Stub\Repository\User'))
+                ->setForeignKey('user_id')
+        );
     }
 
 }

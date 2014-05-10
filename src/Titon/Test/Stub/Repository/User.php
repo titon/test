@@ -32,11 +32,15 @@ class User extends TestRepository {
     public function initialize() {
         parent::initialize();
 
-        $this->addRelation(new OneToOne('Profile', 'Titon\Test\Stub\Repository\Profile'))
-            ->setRelatedForeignKey('user_id');
+        $this->addRelation(
+            (new OneToOne('Profile', 'Titon\Test\Stub\Repository\Profile'))
+                ->setRelatedForeignKey('user_id')
+        );
 
-        $this->addRelation(new ManyToOne('Country', 'Titon\Test\Stub\Repository\Country'))
-            ->setForeignKey('country_id');
+        $this->addRelation(
+            (new ManyToOne('Country', 'Titon\Test\Stub\Repository\Country'))
+                ->setForeignKey('country_id')
+        );
     }
 
 }

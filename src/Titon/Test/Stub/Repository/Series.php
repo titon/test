@@ -27,15 +27,19 @@ class Series extends TestRepository {
         parent::initialize();
 
         // Belongs to
-        $this->addRelation(new ManyToOne('Author', 'Titon\Test\Stub\Repository\Author'))
-            ->setForeignKey('author_id');
+        $this->addRelation(
+            (new ManyToOne('Author', 'Titon\Test\Stub\Repository\Author'))
+                ->setForeignKey('author_id')
+        );
 
         // Has many
-        $this->addRelation(new OneToMany('Books', 'Titon\Test\Stub\Repository\Book'))
-            ->setRelatedForeignKey('series_id')
-            ->setConditions(function(Query $query) {
-                $query->orderBy('id', 'asc');
-            });
+        $this->addRelation(
+            (new OneToMany('Books', 'Titon\Test\Stub\Repository\Book'))
+                ->setRelatedForeignKey('series_id')
+                ->setConditions(function(Query $query) {
+                    $query->orderBy('id', 'asc');
+                })
+        );
     }
 
 }

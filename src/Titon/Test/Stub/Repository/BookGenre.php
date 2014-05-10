@@ -25,11 +25,15 @@ class BookGenre extends TestRepository {
         parent::initialize();
 
         // Belongs to
-        $this->addRelation(new ManyToOne('Book', 'Titon\Test\Stub\Repository\Book'))
-            ->setForeignKey('book_id');
+        $this->addRelation(
+            (new ManyToOne('Book', 'Titon\Test\Stub\Repository\Book'))
+                ->setForeignKey('book_id')
+        );
 
-        $this->addRelation(new ManyToOne('Genre', 'Titon\Test\Stub\Repository\Genre'))
-            ->setForeignKey('genre_id');
+        $this->addRelation(
+            (new ManyToOne('Genre', 'Titon\Test\Stub\Repository\Genre'))
+                ->setForeignKey('genre_id')
+        );
     }
 
 }

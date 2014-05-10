@@ -28,11 +28,13 @@ class Topic extends TestRepository {
     public function initialize() {
         parent::initialize();
 
-        $this->addRelation(new OneToMany('Posts', 'Titon\Test\Stub\Repository\Post'))
-            ->setRelatedForeignKey('topic_id')
-            ->setConditions(function() {
-                $this->orderBy('id', 'asc');
-            });
+        $this->addRelation(
+            (new OneToMany('Posts', 'Titon\Test\Stub\Repository\Post'))
+                ->setRelatedForeignKey('topic_id')
+                ->setConditions(function() {
+                    $this->orderBy('id', 'asc');
+                })
+        );
     }
 
 }

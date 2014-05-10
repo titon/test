@@ -24,8 +24,10 @@ class Author extends TestRepository {
         parent::initialize();
 
         // Has one
-        $this->addRelation(new OneToOne('Series', 'Titon\Test\Stub\Repository\Series'))
-            ->setRelatedForeignKey('author_id');
+        $this->addRelation(
+            (new OneToOne('Series', 'Titon\Test\Stub\Repository\Series'))
+                ->setRelatedForeignKey('author_id')
+        );
     }
 
 }
