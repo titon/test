@@ -7,8 +7,6 @@
 
 namespace Titon\Test\Stub\Repository;
 
-use Titon\Db\Relation\ManyToOne;
-
 class Post extends TestRepository {
 
     protected $_config = [
@@ -24,15 +22,6 @@ class Post extends TestRepository {
         'created_at' => 'datetime',
         'deleted_at' => 'datetime'
     ];
-
-    public function initialize() {
-        parent::initialize();
-
-        $this->addRelation(
-            (new ManyToOne('Topic', 'Titon\Test\Stub\Repository\Topic'))
-                ->setForeignKey('topic_id')
-        );
-    }
 
     public function toHash($value, array $options) {
         return base64_encode(serialize($value));

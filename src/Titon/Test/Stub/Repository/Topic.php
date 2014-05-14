@@ -7,8 +7,6 @@
 
 namespace Titon\Test\Stub\Repository;
 
-use Titon\Db\Relation\OneToMany;
-
 class Topic extends TestRepository {
 
     protected $_config = [
@@ -24,17 +22,5 @@ class Topic extends TestRepository {
         'created' => 'datetime',
         'modified' => 'datetime'
     ];
-
-    public function initialize() {
-        parent::initialize();
-
-        $this->addRelation(
-            (new OneToMany('Posts', 'Titon\Test\Stub\Repository\Post'))
-                ->setRelatedForeignKey('topic_id')
-                ->setConditions(function() {
-                    $this->orderBy('id', 'asc');
-                })
-        );
-    }
 
 }

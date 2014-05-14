@@ -7,8 +7,6 @@
 
 namespace Titon\Test\Stub\Repository;
 
-use Titon\Db\Relation\ManyToOne;
-
 class BookGenre extends TestRepository {
 
     protected $_config = [
@@ -20,20 +18,5 @@ class BookGenre extends TestRepository {
         'book_id' => ['type' => 'int', 'index' => true],
         'genre_id' => ['type' => 'int', 'index' => true],
     ];
-
-    public function initialize() {
-        parent::initialize();
-
-        // Belongs to
-        $this->addRelation(
-            (new ManyToOne('Book', 'Titon\Test\Stub\Repository\Book'))
-                ->setForeignKey('book_id')
-        );
-
-        $this->addRelation(
-            (new ManyToOne('Genre', 'Titon\Test\Stub\Repository\Genre'))
-                ->setForeignKey('genre_id')
-        );
-    }
 
 }

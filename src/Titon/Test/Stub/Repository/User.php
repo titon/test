@@ -7,9 +7,6 @@
 
 namespace Titon\Test\Stub\Repository;
 
-use Titon\Db\Relation\ManyToOne;
-use Titon\Db\Relation\OneToOne;
-
 class User extends TestRepository {
 
     protected $_config = [
@@ -28,19 +25,5 @@ class User extends TestRepository {
         'created' => 'datetime',
         'modified' => 'datetime'
     ];
-
-    public function initialize() {
-        parent::initialize();
-
-        $this->addRelation(
-            (new OneToOne('Profile', 'Titon\Test\Stub\Repository\Profile'))
-                ->setRelatedForeignKey('user_id')
-        );
-
-        $this->addRelation(
-            (new ManyToOne('Country', 'Titon\Test\Stub\Repository\Country'))
-                ->setForeignKey('country_id')
-        );
-    }
 
 }

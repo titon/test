@@ -7,8 +7,6 @@
 
 namespace Titon\Test\Stub\Repository;
 
-use Titon\Db\Relation\ManyToOne;
-
 class Profile extends TestRepository {
 
     protected $_config = [
@@ -21,14 +19,5 @@ class Profile extends TestRepository {
         'lastLogin' => 'datetime',
         'currentLogin' => 'datetime'
     ];
-
-    public function initialize() {
-        parent::initialize();
-
-        $this->addRelation(
-            (new ManyToOne('User', 'Titon\Test\Stub\Repository\User'))
-                ->setForeignKey('user_id')
-        );
-    }
 
 }

@@ -7,8 +7,6 @@
 
 namespace Titon\Test\Stub\Repository;
 
-use Titon\Db\Relation\OneToOne;
-
 class Author extends TestRepository {
 
     protected $_config = [
@@ -19,15 +17,5 @@ class Author extends TestRepository {
         'id' => ['type' => 'int', 'ai' => true, 'primary' => true],
         'name' => 'varchar'
     ];
-
-    public function initialize() {
-        parent::initialize();
-
-        // Has one
-        $this->addRelation(
-            (new OneToOne('Series', 'Titon\Test\Stub\Repository\Series'))
-                ->setRelatedForeignKey('author_id')
-        );
-    }
 
 }
