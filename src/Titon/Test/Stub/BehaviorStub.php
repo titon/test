@@ -14,4 +14,8 @@ use Titon\Db\Behavior\AbstractBehavior;
  */
 class BehaviorStub extends AbstractBehavior {
 
+    public function registerEvents() {
+        return [];
+    }
+
 }
