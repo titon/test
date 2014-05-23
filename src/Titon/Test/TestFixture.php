@@ -1,13 +1,6 @@
 <?php
-/**
- * @copyright   2010-2013, The Titon Project
- * @license     http://opensource.org/licenses/bsd-license.php
- * @link        http://titon.io
- */
-
 namespace Titon\Test;
 
-use Titon\Db\Repository;
 use Titon\Db\Query;
 use \Exception;
 
@@ -17,11 +10,11 @@ use \Exception;
 class TestFixture {
 
     /**
-     * Name of table to use.
+     * Fully qualified repository class to use.
      *
      * @type string
      */
-    public $table;
+    public $repository;
 
     /**
      * List of records to insert into the table.
@@ -57,7 +50,7 @@ class TestFixture {
      * @return bool
      */
     public function dropTable() {
-        return (bool) $this->loadRepository()->query(Query::DROP_TABLE)->save();
+        return (bool) $this->loadRepository()->dropTable();
     }
 
     /**
@@ -71,14 +64,13 @@ class TestFixture {
             return $this->_repository;
         }
 
-        if (!$this->table) {
+        if (!$this->repository) {
             throw new Exception(sprintf('Repository for %s has not been defined', get_class($this)));
         }
 
-        $name = $this->table;
-        $this->_repository = new $name();
+        $name = $this->repository;
 
-        return $this->_repository;
+        return $this->_repository = new $name();
     }
 
     /**
@@ -102,7 +94,7 @@ class TestFixture {
      * @return bool
      */
     public function truncateTable() {
-        return (bool) $this->loadRepository()->query(Query::TRUNCATE)->save();
+        return (bool) $this->loadRepository()->truncate();
     }
 
 }

@@ -1,17 +1,11 @@
 <?php
-/**
- * @copyright   2010-2013, The Titon Project
- * @license     http://opensource.org/licenses/bsd-license.php
- * @link        http://titon.io
- */
-
 namespace Titon\Test\Fixture;
 
 use Titon\Test\TestFixture;
 
 class PostsFixture extends TestFixture {
 
-    public $table = 'Titon\Test\Stub\Repository\Post';
+    public $repository = 'Titon\Test\Stub\Repository\Post';
 
     public $records = [
         ['topic_id' => 1, 'active' => 1, 'deleted' => 1, 'content' => 'Curabitur vulputate sem eget metus dignissim varius.', 'created_at' => '2012-01-01 00:12:34', 'deleted_at' => '2012-02-06 23:55:33'],

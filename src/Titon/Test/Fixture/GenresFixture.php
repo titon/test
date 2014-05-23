@@ -1,17 +1,11 @@
 <?php
-/**
- * @copyright   2010-2013, The Titon Project
- * @license     http://opensource.org/licenses/bsd-license.php
- * @link        http://titon.io
- */
-
 namespace Titon\Test\Fixture;
 
 use Titon\Test\TestFixture;
 
 class GenresFixture extends TestFixture {
 
-    public $table = 'Titon\Test\Stub\Repository\Genre';
+    public $repository = 'Titon\Test\Stub\Repository\Genre';
 
     public $records = [
         ['name' => 'Action', 'book_count' => 0],

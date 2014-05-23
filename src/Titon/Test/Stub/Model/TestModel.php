@@ -1,14 +1,9 @@
 <?php
-/**
- * @copyright   2010-2013, The Titon Project
- * @license     http://opensource.org/licenses/bsd-license.php
- * @link        http://titon.io
- */
-
 namespace Titon\Test\Stub\Model;
 
 use Titon\Db\Database;
 use Titon\Db\Mongo\Collection;
+use Titon\Db\Mongo\MongoDriver;
 use Titon\Model\Model;
 
 class TestModel extends Model {
@@ -17,9 +12,11 @@ class TestModel extends Model {
      * Fix PK for MongoDB.
      */
     public function initialize() {
+        parent::initialize();
+
         $driver = Database::registry()->getDriver('default');
 
-        if ($driver instanceof \Titon\Db\Mongo\MongoDriver) {
+        if ($driver instanceof MongoDriver) {
             $this->primaryKey = '_id';
         }
     }
@@ -30,7 +27,7 @@ class TestModel extends Model {
     public function getRepository() {
         $driver = Database::registry()->getDriver('default');
 
-        if ($driver instanceof \Titon\Db\Mongo\MongoDriver && !$this->_repository) {
+        if ($driver instanceof MongoDriver && !$this->_repository) {
             $this->setRepository(new Collection([
                 'connection' => $this->connection,
                 'table' => $this->table,

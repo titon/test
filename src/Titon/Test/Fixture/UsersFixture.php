@@ -1,17 +1,11 @@
 <?php
-/**
- * @copyright   2010-2013, The Titon Project
- * @license     http://opensource.org/licenses/bsd-license.php
- * @link        http://titon.io
- */
-
 namespace Titon\Test\Fixture;
 
 use Titon\Test\TestFixture;
 
 class UsersFixture extends TestFixture {
 
-    public $table = 'Titon\Test\Stub\Repository\User';
+    public $repository = 'Titon\Test\Stub\Repository\User';
 
     public $records = [
         ['country_id' => 1, 'username' => 'miles', 'firstName' => 'Miles', 'lastName' => 'Johnson', 'password' => '1Z5895jf72yL77h', 'email' => 'miles@email.com', 'age' => 25, 'created' => '1988-02-26 21:22:34'],
