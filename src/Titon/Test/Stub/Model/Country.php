@@ -6,7 +6,7 @@ class Country extends TestModel {
     protected $table = 'countries';
 
     protected $hasMany = [
-        'Users' => ['Titon\Test\Stub\Model\User', 'country_id']
+        'Users' => 'Titon\Test\Stub\Model\User'
     ];
 
 }

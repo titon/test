@@ -10,11 +10,11 @@ class User extends TestModel {
     protected $guarded = ['password'];
 
     protected $belongsTo = [
-        'Country' => ['Titon\Test\Stub\Model\Country', 'country_id']
+        'Country' => 'Titon\Test\Stub\Model\Country'
     ];
 
     protected $hasOne = [
-        'Profile' => ['Titon\Test\Stub\Model\Profile', 'user_id']
+        'Profile' => 'Titon\Test\Stub\Model\Profile'
     ];
 
     protected $validate = [

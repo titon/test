@@ -1,11 +1,9 @@
 <?php
 namespace Titon\Test\Stub\Model;
 
-class Profile extends TestModel {
+class Order extends TestModel {
 
-    protected $table = 'profiles';
-
-    protected $guarded = ['*'];
+    protected $table = 'orders';
 
     protected $belongsTo = [
         'User' => 'Titon\Test\Stub\Model\User'
